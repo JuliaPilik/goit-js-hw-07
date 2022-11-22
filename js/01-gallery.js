@@ -21,6 +21,7 @@ function createListItemsGallery(items) {
 listGallery.addEventListener('click', onGalleryContainerClick);
 
 function onGalleryContainerClick(event) {
+  
     if (!(event.target.classList.contains('gallery__image')||event.target.classList.contains('gallery__link'))) {
         return;
     } else {
@@ -28,17 +29,18 @@ function onGalleryContainerClick(event) {
       
       const instance = basicLightbox.create(`<img width="1280" height="855" src="${event.target.dataset.source}">`, {
         onShow: (instance) => {
-          listGallery.addEventListener("keydown", onEscapeButton);
+          document.addEventListener("keydown", onEscapeButton);
         },
         onClose: (instance) => {
-          listGallery.removeEventListener("keydown", onEscapeButton);
+          document.removeEventListener("keydown", onEscapeButton);
         }
       });
       instance.show();
       
       function onEscapeButton(evt) {
         if (evt.key === "Escape") {
-      instance.close();
+          instance.close();
+          
     }
   }
         

@@ -11,5 +11,5 @@ function createListItemsGallery(items) {
 </a>`).join('');
 
 }
-var lightbox = new SimpleLightbox('.gallery a', {captions: true, captionsData: 'alt', captionDelay: 250});
+const lightbox = new SimpleLightbox('.gallery a', {captions: true, captionsData: 'alt', captionDelay: 250});
 
